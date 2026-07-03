@@ -1,6 +1,6 @@
 ---
-name: review-feature-plan
-description: Use when an existing plan needs review against code and XP workflow. Validate work shape, task type, refactor rationale, status, and realistic story increments.
+name: xp-review-feature-plan
+description: Use when trying the packaged XP workflow to review an existing plan against code and XP rules. Validate work shape, task type, refactor rationale, status, and realistic story increments.
 ---
 
 # Review Feature Plan
@@ -9,7 +9,7 @@ description: Use when an existing plan needs review against code and XP workflow
 - If it is not obvious, ask the user and state the feature name so they can correct it.
 - Read the feature `plan.md` and story files.
 - Inspect the relevant code before changing the plan.
-- Classify the work shape; read `../plan-feature/references/work-shapes.md` when epic/feature/story boundaries are unclear.
+- Classify the work shape; read `../xp-plan-feature/references/work-shapes.md` when epic/feature/story boundaries are unclear.
 - Check whether the plan fits the existing code instead of assuming a greenfield implementation.
 - Look for stories that create new structures when existing code should be extended.
 - Ask focused questions when trade-offs or product behavior are unclear.

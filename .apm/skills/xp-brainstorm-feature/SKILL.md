@@ -1,6 +1,6 @@
 ---
-name: brainstorm-feature
-description: Use when the user wants to clarify vague work before planning. Classify work size, separate business behavior from design/test approach when useful, and document decisions in a brainstorm file.
+name: xp-brainstorm-feature
+description: Use when trying the packaged XP workflow to clarify vague work before planning. Classify work size, separate business behavior from design/test approach when useful, and document decisions in a brainstorm file.
 argument-hint: '<feature-name>'
 ---
 
@@ -10,7 +10,7 @@ Facilitate a feature brainstorming session for: **$ARGUMENTS:Feature name**.
 
 Create a `brainstorm.md` file in the feature folder, such as `./pensieve/1-Next/<feature-name>/brainstorm.md`, documenting the Q&A session and conclusions.
 
-First clarify the work shape. If the size is ambiguous, read `../plan-feature/references/work-shapes.md`.
+First clarify the work shape. If the size is ambiguous, read `../xp-plan-feature/references/work-shapes.md`.
 
 ## Process
 
@@ -49,4 +49,4 @@ First clarify the work shape. If the size is ambiguous, read `../plan-feature/re
 - "Do we need this abstraction or interface for testability: <specific abstraction>?"
 - "Which approach works best: a) <option>, b) <option>, c) <option>?"
 
-End with concise conclusions that can drive `/plan-feature`.
+End with concise conclusions that can drive `/xp-plan-feature`.

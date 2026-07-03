@@ -38,6 +38,15 @@ Skills install to APM's shared `.agents/skills/` location by default. Instructio
 apm compile --target codex
 ```
 
+The packaged skills are namespaced with an `xp-` prefix so they can run alongside older hand-copied prompts:
+
+```text
+/xp-brainstorm-feature
+/xp-plan-feature
+/xp-review-feature-plan
+/xp-update-feature-status
+```
+
 For local testing before publishing, run from this package:
 
 ```bash

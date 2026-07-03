@@ -1,6 +1,6 @@
 ---
-name: update-feature-status
-description: Use after implementation, review, test, or planning progress changes story/task/plan status. Reload the plan, update completed work, and advance the next item.
+name: xp-update-feature-status
+description: Use when trying the packaged XP workflow after implementation, review, test, or planning progress changes story/task/plan status. Reload the plan, update completed work, and advance the next item.
 argument-hint: '<feature-name>'
 ---
 

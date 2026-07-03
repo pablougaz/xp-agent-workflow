@@ -1,6 +1,6 @@
 ---
-name: plan-feature
-description: Use when the user wants to plan XP work. Classify work shape, create the smallest useful epic/feature/story structure, and define BEHAVIOR CHANGE or REFACTOR tasks.
+name: xp-plan-feature
+description: Use when trying the packaged XP workflow to plan XP work. Classify work shape, create the smallest useful epic/feature/story structure, and define BEHAVIOR CHANGE or REFACTOR tasks.
 argument-hint: '<feature-name>'
 ---
 
@@ -20,7 +20,7 @@ Before creating files, classify the work shape. Read `references/work-shapes.md`
   - feature folder with multiple story files when the work contains multiple shippable behaviors.
   - feature folder with one story file when the work is a single-story feature.
 - Check for `brainstorm.md` in the feature folder.
-- If `brainstorm.md` is missing, ask the user to run `/brainstorm-feature` first or provide enough context if the feature is small.
+- If `brainstorm.md` is missing, ask the user to run `/xp-brainstorm-feature` first or provide enough context if the feature is small.
 
 ## plan.md Structure
 
