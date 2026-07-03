@@ -26,8 +26,15 @@ Then run:
 apm install
 ```
 
+Skills install to APM's shared `.agents/skills/` location by default. Instruction files are staged for compilation; run this when you want APM to merge them into the harness context file:
+
+```bash
+apm compile --target codex
+```
+
 For local testing before publishing, run from this package:
 
 ```bash
-apm install --dry-run --target codex
+apm pack --dry-run --verbose
+apm audit --ci --no-policy
 ```
