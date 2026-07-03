@@ -47,6 +47,8 @@ The packaged skills are namespaced with an `xp-` prefix so they can run alongsid
 /xp-update-feature-status
 ```
 
+See [docs/workflow-usage.md](docs/workflow-usage.md) for the workflow diagram and Trada pilot guidance.
+
 For local testing before publishing, run from this package:
 
 ```bash
