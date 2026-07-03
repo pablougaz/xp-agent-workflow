@@ -27,14 +27,18 @@ For every behavior change:
 
 Never write production code for non-trivial behavior without a failing test driving it.
 
+When changing existing behavior, RED usually means changing an existing assertion or expectation to the new desired behavior, running the test, and seeing it fail for the expected reason.
+
 ## Refactoring Mechanics
 
 - Preserve behavior.
+- Prove preservation by running existing tests before and after each refactoring step.
 - Add new implementation alongside old implementation.
 - Migrate callers incrementally.
 - Delete old implementation only after callers are migrated and tests pass.
 - Keep one concept per change.
 - Do not change production code and test code at the same time during a refactor.
+- Prefer named mechanical refactorings: rename, extract function, extract class or module, move function, introduce parameter object, replace primitive with value object, split phase, or move side effects to a boundary.
 
 ## Momentum Workflow
 
@@ -45,6 +49,10 @@ Never write production code for non-trivial behavior without a failing test driv
 5. Commit frequently after small, working progress.
 
 All tests must pass before final handoff or commit.
+
+## Status Discipline
+
+After finishing a task or story, update the plan/story status before final handoff. Reload the plan first so the status update is grounded in the current work item.
 
 ## Code Style
 

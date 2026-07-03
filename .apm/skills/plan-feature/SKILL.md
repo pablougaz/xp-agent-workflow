@@ -1,6 +1,6 @@
 ---
 name: plan-feature
-description: Use when the user wants to break a feature into testable, shippable XP story increments with behavior-driven tasks.
+description: Use when the user wants to plan XP work. Classify work shape, create the smallest useful epic/feature/story structure, and define BEHAVIOR CHANGE or REFACTOR tasks.
 argument-hint: '<feature-name>'
 ---
 
@@ -8,12 +8,17 @@ argument-hint: '<feature-name>'
 
 Create a plan for **$ARGUMENTS:Feature name**. Keep `plan.md` and story files succinct: numbered bullet lists, single-sentence descriptions, and no long narrative.
 
+Before creating files, classify the work shape. Read `references/work-shapes.md` if there is any ambiguity.
+
 ## Feature Folder Setup
 
 - Check if the feature folder exists in `./pensieve/` or `./plan/`.
 - If not found, ask which priority folder to use: `0-Now`, `1-Next`, `2-Later`, `3-Backlog`, or `9-Completed`.
 - Default to `3-Backlog` when the user has no preference.
-- Create a folder named `./pensieve/<chosen-folder>/feature-<NNN>-<feature-name>/` using the next available 3-digit number.
+- Create the smallest useful structure:
+  - epic folder when the work contains multiple features.
+  - feature folder with multiple story files when the work contains multiple shippable behaviors.
+  - feature folder with one story file when the work is a single-story feature.
 - Check for `brainstorm.md` in the feature folder.
 - If `brainstorm.md` is missing, ask the user to run `/brainstorm-feature` first or provide enough context if the feature is small.
 
@@ -32,8 +37,10 @@ Create `plan.md` with:
 - First question: "What is the first behavior test I want to write?"
 - Use Given-When-Then for behavior tasks.
 - Keep stories small and shippable.
+- Do not create stories inside stories.
+- Do not force a tiny feature into multiple stories; use one story with tasks.
 - Use fewer than 10 stories, ideally around 5.
-- If a feature needs more than 10 stories, suggest splitting it.
+- If a feature needs more than 10 stories, suggest splitting it into an epic with features.
 - Do not create abstraction-only stories; abstractions emerge through REFACTOR tasks.
 - Order stories from simplest observable behavior to most complex.
 - Use statuses: Not Started, Next, In Progress, Completed.
@@ -49,7 +56,9 @@ Each story task is one of:
 
 A BEHAVIOR CHANGE task is the full TDD cycle. Do not split "write test" and "make test pass" into separate tasks.
 
-If adding a behavior feels awkward, add a REFACTOR task first to make the change easy.
+For BEHAVIOR CHANGE - CHANGE EXISTING, intentionally change the existing assertion or expectation to the new desired behavior first. Run the test and confirm RED, then make the minimum production change to pass.
+
+If adding a behavior feels awkward, add a REFACTOR task first to make the change easy. Read `references/refactoring-mechanics.md` and `references/design-for-change.md` when drafting REFACTOR tasks.
 
 ## Story File Structure
 
@@ -81,4 +90,6 @@ For BEHAVIOR CHANGE - CHANGE EXISTING:
 For REFACTOR:
 
 - State what abstraction or structure changes.
-- Explain why all existing behavior remains unchanged.
+- Name the refactoring mechanic.
+- Explain why the refactor makes the next behavior change easier.
+- Name the existing test command or test case that proves behavior is preserved before and after the step.

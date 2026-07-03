@@ -1,6 +1,6 @@
 ---
 name: update-feature-status
-description: Use when feature story or task progress changes and pensieve plan/status files need to be updated.
+description: Use after implementation, review, test, or planning progress changes story/task/plan status. Reload the plan, update completed work, and advance the next item.
 argument-hint: '<feature-name>'
 ---
 
@@ -9,8 +9,10 @@ argument-hint: '<feature-name>'
 - Find the relevant feature and story.
 - Use git history if helpful.
 - Ask the user only if the feature or completed work is genuinely unclear.
+- Reload the current `plan.md` and active story before changing status.
 - Update the task status table in the story file.
 - Update the story status table in `plan.md` when a story is completed.
+- Before final handoff, verify the plan and story status match the work just completed.
 
 Task and story statuses progress:
 
@@ -34,3 +36,12 @@ If the user wants to change feature priority, move the feature folder between:
 - `9-Completed`
 
 When this skill is already in context after completing a task, update statuses without waiting for another prompt.
+
+## Status Anchor
+
+Treat status update as part of finishing work, not as optional bookkeeping:
+
+1. Reload the active story and plan.
+2. Move completed work to `Completed`.
+3. Move the next planned item to `Next` or `In Progress`.
+4. Mention the status update in the final handoff.

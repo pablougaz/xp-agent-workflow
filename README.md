@@ -23,7 +23,7 @@ After this package is published to GitHub, consume it from a project `apm.yml`:
 ```yaml
 dependencies:
   apm:
-    - pabloper/xp-agent-workflow#v0.1.0
+    - pablougaz/xp-agent-workflow#v0.2.0
 ```
 
 Then run:
