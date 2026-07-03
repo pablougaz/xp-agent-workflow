@@ -35,6 +35,8 @@ Story tasks are either:
 - REFACTOR
 - BEHAVIOR CHANGE
 
+Tasks live inside story markdown files. Each story file has a task status table near the top and task details below it. Do not create separate task files.
+
 Every BEHAVIOR CHANGE task names the test file, test name, and Given-When-Then behavior.
 
 For an existing behavior change, the task names the existing assertion or expectation to change first to create RED.

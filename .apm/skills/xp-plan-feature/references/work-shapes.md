@@ -60,9 +60,7 @@ Task type is not work shape. Inside a story, tasks are normally one of:
 - BEHAVIOR CHANGE
 - REFACTOR
 
-Occasionally a task can be SUPPORT, SETUP, or CHORE when it truly cannot be expressed as a behavior change or refactor. These should be rare and justified in the task detail.
-
-Do not create separate task files by default. Keep tasks in the story file unless a single task grows large enough to need its own durable artifact, such as a research report or migration checklist.
+Do not create separate task files. Keep tasks in the story file. If a task produces a durable artifact, such as a research report or migration checklist, link that artifact from the task detail instead of turning the task itself into a file.
 
 ## Planning Rule
 

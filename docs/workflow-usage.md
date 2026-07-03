@@ -23,18 +23,24 @@ flowchart TD
     Brain -->|No| Brainstorm["/xp-brainstorm-feature"]
     Brain -->|Yes| Shape["Classify work shape"]
     Brainstorm --> Shape
-    Shape --> Epic["Epic: multiple features"]
-    Shape --> Feature["Feature: multiple stories"]
-    Shape --> Single["Single-story feature"]
+    Shape --> Epic["Epic folder"]
+    Epic --> EpicFeatures["contains feature folders"]
+    Shape --> Feature["Feature folder"]
+    Shape --> Single["Single-story feature folder"]
     Shape --> RefactorOnly["Refactor-only story"]
     Shape --> Spike["Research spike"]
-    Epic --> Plan["/xp-plan-feature"]
-    Feature --> Plan
-    Single --> Plan
-    RefactorOnly --> Plan
+    EpicFeatures --> Plan["/xp-plan-feature"]
+    Feature --> Stories["contains story files"]
+    Single --> OneStory["contains one story file"]
+    RefactorOnly --> RefactorStory["story file"]
+    Stories --> Story["story-##.md"]
+    OneStory --> Story
+    RefactorStory --> Story
+    Story --> TaskTable["task table in story file"]
     Spike --> Plan
     Plan --> Review["/xp-review-feature-plan"]
-    Review --> Execute["Implement task"]
+    Review --> TaskTable
+    TaskTable --> Execute["Implement next task"]
     Execute --> TaskType{"Task type"}
     TaskType --> Behavior["BEHAVIOR CHANGE"]
     TaskType --> Refactor["REFACTOR"]
@@ -61,6 +67,8 @@ Task type answers "what kind of step is this?"
 
 - BEHAVIOR CHANGE: add a new test or change an existing assertion to the new expected behavior, confirm RED, then make it pass.
 - REFACTOR: preserve behavior; existing tests pass before and after each small mechanical step.
+
+Tasks live in the story markdown file, in the story's task table and task detail sections. The workflow does not create separate task files.
 
 ## Package Boundary
 

@@ -54,6 +54,8 @@ Each story task is one of:
 - REFACTOR: extract or rearrange code while all existing tests stay green.
 - BEHAVIOR CHANGE: add or modify one test, make it pass, then refactor.
 
+Do not create separate task files. Tasks live in the story markdown file, first in the task status table and then in the task detail section.
+
 A BEHAVIOR CHANGE task is the full TDD cycle. Do not split "write test" and "make test pass" into separate tasks.
 
 For BEHAVIOR CHANGE - CHANGE EXISTING, intentionally change the existing assertion or expectation to the new desired behavior first. Run the test and confirm RED, then make the minimum production change to pass.
