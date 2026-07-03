@@ -10,6 +10,12 @@ This package contains shared, repo-agnostic agent context:
 
 Keep repo-specific commands, architecture, ports, services, and test names in each repo's own `AGENTS.md` or equivalent harness file.
 
+## What Is Pensieve?
+
+`pensieve/` is the workspace memory folder for agent-assisted development. The name comes from the Harry Potter memory storage/retrieval device: it is where the agent and human keep feature plans, brainstorm notes, story breakdowns, work status, and durable progress context between sessions.
+
+Many repos might call this folder `plans/`, `docs/`, or `work/`. This workflow uses `pensieve/` because it is descriptive for agent memory and unlikely to collide with an existing project directory.
+
 ## Install Into A Repo
 
 After this package is published to GitHub, consume it from a project `apm.yml`:
