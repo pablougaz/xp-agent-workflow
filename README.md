@@ -1,9 +1,12 @@
-# xp-agent-workflow
+# ai-workflows
 
-Reusable agent workflow package for XP-style planning and implementation.
+Personal APM package for portable base skills and reusable XP-style planning
+and implementation workflows across agent harnesses.
 
-This package contains shared, repo-agnostic agent context:
+This package contains shared, repo-agnostic agent context and skills:
 
+- Session resumption with `remind-me`
+- Safe Git worktree creation and cleanup
 - XP/TDD development discipline
 - Pensieve feature planning conventions
 - Feature brainstorming, planning, status update, and plan review skills
@@ -23,7 +26,7 @@ After this package is published to GitHub, consume it from a project `apm.yml`:
 ```yaml
 dependencies:
   apm:
-    - pablougaz/xp-agent-workflow#v0.2.0
+    - pablougaz/ai-workflows#v0.3.0
 ```
 
 Then run:
@@ -46,6 +49,28 @@ The packaged skills are namespaced with an `xp-` prefix so they can run alongsid
 /xp-review-feature-plan
 /xp-update-feature-status
 ```
+
+The base skills are intentionally not XP-prefixed:
+
+```text
+/remind-me
+/start-worktree
+/clean-worktree
+```
+
+## Install Globally
+
+Install the package once at user scope and deploy its skills to the shared
+agent-skills location:
+
+```bash
+apm install pablougaz/ai-workflows#v0.3.0 --global --target agent-skills
+```
+
+This makes the skills available from `~/.agents/skills/` to harnesses that
+support the shared Agent Skills convention. Use APM to update the installation
+rather than copying files between Claude, Codex, Cursor, or other harness
+directories.
 
 See [docs/workflow-usage.md](docs/workflow-usage.md) for the workflow diagram and Trada pilot guidance.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clean Worktree"
+  short_description: "Safely remove a completed Git worktree"
+  default_prompt: "Use $clean-worktree to safely remove the completed worktree and branch."

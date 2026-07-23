@@ -1,0 +1,57 @@
+{
+  "content_evals": [
+    {
+      "skill": "remind-me",
+      "prompt": "Remind me where we left off in this repository.",
+      "expected": [
+        "Uses recent commits, current branch, and working-tree status",
+        "Inspects the repository's planning convention",
+        "Suggests one grounded next step"
+      ]
+    },
+    {
+      "skill": "start-worktree",
+      "prompt": "Create an isolated worktree for payment-retries in this Python repository.",
+      "expected": [
+        "Does not assume npm",
+        "Resolves an exact sibling path and new branch",
+        "Discovers setup from repository evidence and verifies the result"
+      ]
+    },
+    {
+      "skill": "clean-worktree",
+      "prompt": "Clean up the payment-retries worktree; it may still have local changes.",
+      "expected": [
+        "Resolves exactly one registered worktree",
+        "Stops before removal if any changes exist",
+        "Checks integration status before branch deletion"
+      ]
+    }
+  ],
+  "trigger_evals": {
+    "train": [
+      {"skill": "remind-me", "should_trigger": true, "prompt": "Where did we leave off on this repo?"},
+      {"skill": "remind-me", "should_trigger": true, "prompt": "Help me resume yesterday's coding work."},
+      {"skill": "start-worktree", "should_trigger": true, "prompt": "Start a worktree for the billing fix."},
+      {"skill": "start-worktree", "should_trigger": true, "prompt": "Set up an isolated checkout for feature flags."},
+      {"skill": "clean-worktree", "should_trigger": true, "prompt": "Remove the merged billing worktree and branch."},
+      {"skill": "clean-worktree", "should_trigger": true, "prompt": "Clean up my completed feature worktree."},
+      {"skill": "remind-me", "should_trigger": false, "prompt": "Remind me to call Alex tomorrow."},
+      {"skill": "start-worktree", "should_trigger": false, "prompt": "Create a normal branch for this typo."},
+      {"skill": "clean-worktree", "should_trigger": false, "prompt": "Delete the build output directory."},
+      {"skill": "clean-worktree", "should_trigger": false, "prompt": "Prune all stale remote branches."},
+      {"skill": "remind-me", "should_trigger": false, "prompt": "Explain how computer memory works."},
+      {"skill": "start-worktree", "should_trigger": false, "prompt": "Build a Docker development container."}
+    ],
+    "validation": [
+      {"skill": "remind-me", "should_trigger": true, "prompt": "What's in progress and what should I pick up next?"},
+      {"skill": "start-worktree", "should_trigger": true, "prompt": "I want to work on auth in a separate Git checkout."},
+      {"skill": "clean-worktree", "should_trigger": true, "prompt": "The auth work is merged; retire its worktree safely."},
+      {"skill": "remind-me", "should_trigger": false, "prompt": "Give me a general architecture overview of this repo."},
+      {"skill": "start-worktree", "should_trigger": false, "prompt": "Switch to the existing auth branch."},
+      {"skill": "clean-worktree", "should_trigger": false, "prompt": "Run git clean on ignored files."},
+      {"skill": "remind-me", "should_trigger": false, "prompt": "Set a recurring reminder every Friday."},
+      {"skill": "clean-worktree", "should_trigger": false, "prompt": "Delete this arbitrary temporary directory."}
+    ]
+  }
+}
