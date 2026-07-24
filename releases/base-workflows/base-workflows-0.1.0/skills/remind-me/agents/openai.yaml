@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remind Me"
+  short_description: "Resume recent repository work with context"
+  default_prompt: "Use $remind-me to summarize where this repository left off and suggest the next step."

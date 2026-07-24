@@ -1,0 +1,10 @@
+name: base-workflows
+version: 0.1.0
+description: Personal cross-harness skills for resuming work and managing Git worktrees.
+author: pabloper
+license: MIT
+dependencies:
+  apm: []
+  mcp: []
+includes: auto
+scripts: {}

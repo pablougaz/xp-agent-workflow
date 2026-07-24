@@ -1,0 +1,16 @@
+pack:
+  format: plugin
+  target: minimal
+  packed_at: '2026-07-23T23:59:27.007694+00:00'
+  bundle_files:
+    instructions/pensieve-planning.instructions.md: 269d9192a3ded59790758246c2498ca899bcc06b0c2fb8be393aef9c83c561e0
+    instructions/xp-development.instructions.md: 38836b859c415e42a8801c1cc8315a0f60160bd9f43540eecc0bdc2b5826aec4
+    plugin.json: 431221b0b6dadd1eb07fb92808052abe7bee61043f6ca9d557b9fd5d633f4fda
+    skills/brainstorm-feature/SKILL.md: 1749be1febdcc5ccd90588b50703970d52f3ebba350865824f231aae9c5c79db
+    skills/plan-feature/SKILL.md: 71c22306e31b05ddec9a41ba613b89955f38f8e3e52c814274ed59476e837f15
+    skills/review-feature-plan/SKILL.md: 0f4f865fe1f8de2a5f664bda71483dc735cce74144fd9442dfb69f429d82ef7e
+    skills/update-feature-status/SKILL.md: c434bcc36a1b6fefa986fae4c27efaf52a6d5df3acae835717e1958d24aab786
+lockfile_version: '1'
+generated_at: '2026-07-03T16:19:28.973176+00:00'
+apm_version: 0.23.1
+dependencies: []

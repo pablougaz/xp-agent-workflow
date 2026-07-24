@@ -1,0 +1,4 @@
+interface:
+  display_name: "Start Worktree"
+  short_description: "Create and prepare an isolated Git worktree"
+  default_prompt: "Use $start-worktree to create an isolated worktree for this task."

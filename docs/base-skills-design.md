@@ -1,5 +1,9 @@
 # Base Skills Migration Design
 
+> Superseded package-boundary decision: the skill design remains current, but
+> `docs/two-package-design.md` replaces the original single-package distribution
+> layout.
+
 ## Intent and scope
 
 Turn this package into `ai-workflows`, a personal, cross-harness APM bundle containing the existing XP workflow plus portable base skills migrated from `~/.claude/commands`. The first migration adds session recall and Git worktree lifecycle skills. It does not copy Claude command syntax, duplicate the four commands already superseded by `xp-*`, rename the remote repository, or silently delete the original command files.

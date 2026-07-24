@@ -1,7 +1,7 @@
 # XP Workflow Usage
 
-The `ai-workflows` package ships a namespaced XP workflow that can run beside
-the package's portable base skills and existing hand-copied prompts.
+The `xp-agent-workflow` package ships a namespaced XP workflow that can run
+beside independently installed base skills and existing hand-copied prompts.
 
 ## Commands
 
