@@ -1,0 +1,16 @@
+pack:
+  format: plugin
+  target: minimal
+  packed_at: '2026-08-01T19:54:22.763372+00:00'
+  bundle_files:
+    plugin.json: 3d6fe576ee551c3eb38dc2cf1c52263cd373ffcdf88353df6ffe12db5ae16e0d
+    skills/clean-worktree/SKILL.md: 80248cf7cee41d5999db71e2fa3777f4a7f5fd0423d39ac67dc5c7150feed4e1
+    skills/clean-worktree/agents/openai.yaml: 3bedc8603c209f36a79aff81a3ff47e58640eeb719ef4c7467c553476ede720b
+    skills/remind-me/SKILL.md: d1e37f634d6ffeeff8c506c4c69954d2e725499a6fca6ec73f6b9ce8235b7569
+    skills/remind-me/agents/openai.yaml: e4359e3cb417f31c7edbb03278ed3f96c1e796002ba76ace41ec9d894997f2a4
+    skills/start-worktree/SKILL.md: 592a071dd2a66d05cbfb45693da5a964afb2cd7befb220a46c2e3128a2db34d3
+    skills/start-worktree/agents/openai.yaml: 4fcdfa3e81e8528f57552f1b9d450ce21bdd13236b263ed07cbaa33c059e64d5
+lockfile_version: '1'
+generated_at: '2026-07-23T00:00:00+00:00'
+apm_version: 0.23.1
+dependencies: []

@@ -6,7 +6,7 @@
 
 ## Intent and scope
 
-Turn this package into `ai-workflows`, a personal, cross-harness APM bundle containing the existing XP workflow plus portable base skills migrated from `~/.claude/commands`. The first migration adds session recall and Git worktree lifecycle skills. It does not copy Claude command syntax, duplicate the four commands already superseded by `xp-*`, rename the remote repository, or silently delete the original command files.
+Turn this package into `ai-workflows`, a personal, cross-harness APM bundle containing the existing XP workflow plus portable base skills migrated from `~/.claude/commands`. The first migration adds session recall and Git worktree lifecycle skills. Version 0.2 adds a private-safe extension point: generic worktree skills defer before mutation when the active repository provides a matching specialized workflow. It does not copy Claude command syntax, embed knowledge of any consuming repository, duplicate the four commands already superseded by `xp-*`, rename the remote repository, or silently delete original command files.
 
 Cost stance: balanced. No cost cap was declared.
 
@@ -19,6 +19,7 @@ flowchart TD
     RM["remind-me (new SKILL module)"]
     SW["start-worktree (new SKILL module)"]
     CW["clean-worktree (new SKILL module)"]
+    SPEC["repository-specific worktree workflow (optional external module)"]
     GIT["Git CLI (existing deterministic tool)"]
     FS["Filesystem and package-manager CLIs (existing deterministic tools)"]
 
@@ -32,6 +33,8 @@ flowchart TD
     SW --> FS
     CW --> GIT
     CW --> FS
+    SW -. "discover and defer" .-> SPEC
+    CW -. "discover and defer" .-> SPEC
 ```
 
 ## Thread and execution diagram
@@ -79,6 +82,8 @@ flowchart LR
 | `start-worktree` | Use when the user wants an isolated Git worktree for a feature or task, including local setup needed to begin development. | Task name, current repository, repo-local setup conventions. | Verified worktree path and branch, with setup status. | Git, filesystem, and discovered package-manager tools. | BOTH |
 | `clean-worktree` | Use when the user wants to remove a completed Git worktree and its branch safely. | Task name or worktree/branch identity. | Verified cleanup result or a safety stop. | Git and filesystem tools. | BOTH |
 
+Both worktree interfaces first inspect available skills and repository guidance. A matching specialized workflow owns the complete operation; the generic skill invokes it and stops before any partial mutation.
+
 ## Composition decisions
 
 | Box | Mode | Rationale |
@@ -87,8 +92,9 @@ flowchart LR
 | `start-worktree` | LOCAL SIBLING | Consequential creation workflow with its own safety and discovery rules. |
 | `clean-worktree` | LOCAL SIBLING | Destructive cleanup workflow must remain separately dispatchable. |
 | Git/filesystem/package tools | INLINE common-substrate dependency | Every target harness exposes deterministic tool execution; no packaged module is required. |
+| Repository-specific worktree workflow | EXTERNAL MODULE discovered at runtime | Consumers may supply private topology without creating a public dependency or leaking repository knowledge into this package. |
 
-External modules required: none. APM is the distribution system, not a runtime dependency of the skills. The existing package manifest remains the declaration surface.
+External modules required: none at package install time. A specialized consumer declares and installs its own companion module; the generic skills only expose the discovery/defer protocol. APM is the distribution system, not a runtime dependency of the generic skills.
 
 Declared targets: common-only. APM installs the same skill containers for Claude, Codex, Cursor, OpenCode, and shared `.agents/skills`; skill bodies contain no harness-specific interpolation or tool names.
 
@@ -97,6 +103,7 @@ Declared targets: common-only. APM installs the same skill containers for Claude
 - The four Claude planning commands overlap the existing `xp-*` skills and will not be duplicated.
 - `start-worktree` and `clean-worktree` remain separate because their triggers, effects, and safety postures differ.
 - Hard-coded `~/dev`, `worktree/`, `npm ci`, and named `.env` files are treated as legacy defaults to discover or confirm, not universal facts.
+- Specialized repository names and topology remain outside this public package; a deterministic test rejects private repository terminology in both generic skill bodies.
 - Worktree cleanup must resolve exact paths and branch state before mutation and must stop on dirty or unmerged work unless the user explicitly authorizes the risky action.
 - Skill names match directory names, remain ASCII, and stay below the entrypoint size limits.
 - No open BLOCKER or HIGH findings remain in the design.
@@ -119,6 +126,7 @@ Content evaluations compare runs with and without each skill:
 1. In a repository with recent commits and `pensieve/0-Now`, ask, “Remind me where we left off.” Expect grounded commit/branch/status evidence and a next step.
 2. In a non-Node repository with local setup documentation, ask for a worktree. Expect setup discovery rather than unconditional `npm ci`.
 3. In a dirty or unmerged worktree, ask for cleanup. Expect a stop and explicit warning before any removal.
+4. In a repository with a matching specialized worktree skill, ask generic start or clean to proceed. Expect delegation and a complete stop before generic mutation.
 
 Trigger evaluation uses approximately 20 prompts split 60/40 between training and validation:
 

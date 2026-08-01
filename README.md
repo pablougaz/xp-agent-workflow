@@ -4,7 +4,7 @@ Personal monorepo of independently installable APM workflow packages.
 
 ## Packages
 
-### `base-workflows` 0.1.0
+### `base-workflows` 0.2.0
 
 General cross-harness skills:
 
@@ -48,7 +48,8 @@ visible and independently installable:
 ```text
 releases/
 ├── base-workflows/
-│   └── base-workflows-0.1.0/
+│   ├── base-workflows-0.1.0/
+│   └── base-workflows-0.2.0/
 └── xp-agent-workflow/
     ├── xp-agent-workflow-0.1.0/
     └── xp-agent-workflow-0.2.0/
@@ -67,7 +68,7 @@ name: your-project
 version: 0.1.0
 dependencies:
   apm:
-    - pablougaz/ai-workflows/releases/base-workflows/base-workflows-0.1.0
+    - pablougaz/ai-workflows/releases/base-workflows/base-workflows-0.2.0
     - pablougaz/ai-workflows/releases/xp-agent-workflow/xp-agent-workflow-0.2.0
 ```
 
@@ -107,7 +108,7 @@ Install only the base package at user scope:
 
 ```bash
 apm install \
-  pablougaz/ai-workflows/releases/base-workflows/base-workflows-0.1.0 \
+  pablougaz/ai-workflows/releases/base-workflows/base-workflows-0.2.0 \
   --global \
   --target agent-skills
 ```
