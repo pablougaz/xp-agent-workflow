@@ -14,6 +14,7 @@
       "prompt": "Create an isolated worktree for payment-retries in this Python repository.",
       "expected": [
         "Does not assume npm",
+        "Defers before mutation when the repository provides a matching specialized worktree workflow",
         "Resolves an exact sibling path and new branch",
         "Discovers setup from repository evidence and verifies the result"
       ]
@@ -23,6 +24,7 @@
       "prompt": "Clean up the payment-retries worktree; it may still have local changes.",
       "expected": [
         "Resolves exactly one registered worktree",
+        "Defers before mutation when the repository provides a matching specialized worktree workflow",
         "Stops before removal if any changes exist",
         "Checks integration status before branch deletion"
       ]
