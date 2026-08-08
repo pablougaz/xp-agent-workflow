@@ -13,6 +13,7 @@ PENSIEVE_INSTRUCTIONS="$PACKAGE/.apm/instructions/pensieve-planning.instructions
 PACKAGE_MANIFEST="$PACKAGE/apm.yml"
 README="$REPO_ROOT/README.md"
 USAGE="$REPO_ROOT/docs/workflow-usage.md"
+RELEASE="$REPO_ROOT/releases/xp-agent-workflow/xp-agent-workflow-0.3.0"
 
 fail() {
     echo "FAIL: $1" >&2
@@ -50,5 +51,9 @@ grep -qi 'cannot.*Completed\|do not.*Completed' "$STATUS_SKILL" || fail "status 
 grep -q '^version: 0.3.0$' "$PACKAGE_MANIFEST" || fail "XP package version is not 0.3.0"
 grep -q '`xp-review-refactoring`' "$README" || fail "README does not list the new skill"
 grep -q '/xp-review-refactoring' "$USAGE" || fail "workflow usage does not show the new command"
+[[ -f "$RELEASE/plugin.json" ]] || fail "XP 0.3.0 release bundle is missing"
+[[ -f "$RELEASE/skills/xp-review-refactoring/SKILL.md" ]] || fail "release bundle omits the new skill"
+grep -q '"version": "0.3.0"' "$RELEASE/plugin.json" || fail "release metadata is not version 0.3.0"
+[[ ! -e "$RELEASE/skills/remind-me" ]] || fail "release bundle leaks a base-workflows skill"
 
 echo "PASS: XP refactoring review is portable and integrated into story completion"
