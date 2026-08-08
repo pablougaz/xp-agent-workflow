@@ -1,0 +1,59 @@
+{
+  "content_evals": [
+    {
+      "skill": "xp-review-refactoring",
+      "prompt": "Review refactoring opportunities in src/pricing.ts and test/pricing.test.ts even though those files are not in the current Git diff.",
+      "expected": [
+        "Treats the named files as authoritative scope",
+        "Confirms the relevant tests are green before reviewing",
+        "Reviews test readability before production-code design",
+        "Reports only located, mechanically actionable findings"
+      ]
+    },
+    {
+      "skill": "xp-review-refactoring",
+      "prompt": "The story implementation is done and green. Review the current changes for cleanup before I complete it.",
+      "expected": [
+        "Derives a bounded scope from staged and unstaged Git changes",
+        "Checks expressive arrange-act-assert flow and business-facing assertions",
+        "Checks simple design, cohesion, duplication, names, and unnecessary comments",
+        "Does not implement findings or invent a planning directory"
+      ]
+    },
+    {
+      "skill": "xp-review-refactoring",
+      "prompt": "Run the final refactoring review for this completed story; the code may already be clean.",
+      "expected": [
+        "States explicitly when no worthwhile refactoring is found",
+        "Avoids style-only or speculative findings",
+        "Names the test evidence used to establish green status"
+      ]
+    }
+  ],
+  "trigger_evals": {
+    "train": [
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Review this completed story for refactoring opportunities."},
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "The tests pass; do the final XP cleanup review."},
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Find clean-code improvements in the current diff."},
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Review these named files for test and production refactorings."},
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Before completing the story, identify mechanical refactors worth doing."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Review my feature plan and story breakdown."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Implement the new retry behavior with TDD."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Why is this test failing?"},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Run the formatter on the repository."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Perform a security review of this pull request."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Explain SOLID principles."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Update the current story status."}
+    ],
+    "validation": [
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Everything is green; sweep the story code for cleanup suggestions."},
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Check UserService and its tests for worthwhile refactorings."},
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Do the story-end refactoring review before we mark it complete."},
+      {"skill": "xp-review-refactoring", "should_trigger": true, "prompt": "Inspect the staged and unstaged work for simple-design improvements."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Refactor this method now and keep the tests green."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Add tests for the missing validation behavior."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Give me a general code review for bugs and security issues."},
+      {"skill": "xp-review-refactoring", "should_trigger": false, "prompt": "Brainstorm a feature for credential storage."}
+    ]
+  }
+}
