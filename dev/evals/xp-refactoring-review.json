@@ -5,16 +5,18 @@
       "prompt": "Review refactoring opportunities in src/pricing.ts and test/pricing.test.ts even though those files are not in the current Git diff.",
       "expected": [
         "Treats the named files as authoritative scope",
-        "Confirms the relevant tests are green before reviewing",
+        "Includes the tests that exercise the named production code",
+        "Confirms the complete relevant test suite is green before reviewing",
         "Reviews test readability before production-code design",
         "Reports only located, mechanically actionable findings"
       ]
     },
     {
       "skill": "xp-review-refactoring",
-      "prompt": "The story implementation is done and green. Review the current changes for cleanup before I complete it.",
+      "prompt": "The story implementation spans several commits and the working tree is clean. Review it for cleanup before I complete it.",
       "expected": [
-        "Derives a bounded scope from staged and unstaged Git changes",
+        "Resolves the complete story boundary from the story plan and Git history",
+        "Does not assume the latest commit represents the whole story",
         "Checks expressive arrange-act-assert flow and business-facing assertions",
         "Checks simple design, cohesion, duplication, names, and unnecessary comments",
         "Does not implement findings or invent a planning directory"
@@ -26,7 +28,17 @@
       "expected": [
         "States explicitly when no worthwhile refactoring is found",
         "Avoids style-only or speculative findings",
-        "Names the test evidence used to establish green status"
+        "Names the complete test-suite evidence used to establish green status",
+        "Uses stable finding IDs and records status and disposition"
+      ]
+    },
+    {
+      "skill": "xp-review-refactoring",
+      "prompt": "Review this green story. Its production code has explanatory comments throughout the main workflow.",
+      "expected": [
+        "Treats explanatory comments as design failures rather than harmless style",
+        "Suggests expressive names or structure instead of comment rewrites",
+        "Allows comments only for specifically justified exceptional constraints"
       ]
     }
   ],

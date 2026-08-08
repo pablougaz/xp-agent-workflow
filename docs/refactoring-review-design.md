@@ -100,18 +100,28 @@ portable Agent Skills structure and harness-provided terminal/file operations.
 - Do not add a per-test refactoring skill. Per-task cleanup is part of the
   existing TDD cycle and always runs in the same context; a second entrypoint
   would create lockstep co-invocation and dispatch overlap.
-- Make explicit review scope authoritative. When absent, prefer staged and
-  unstaged changes, then the latest commit as a bounded fallback. Do not assume
-  a branch name or repository language.
-- Require green relevant tests before reviewing. A failing suite is a behavior
-  or implementation problem, not a refactoring-only starting point.
+- Make explicit review scope authoritative and include the tests or production
+  collaborators that exercise it. For story-end review, resolve the complete
+  story boundary from the story plan and Git history, using a dedicated
+  story-branch merge-base only when it is a reliable boundary. Include staged
+  and unstaged work; never assume the latest commit represents the story. Ask
+  for scope when no reliable boundary exists.
+- Require the complete story-declared test suite, or the complete relevant
+  suite for an explicit non-story scope, to be green before reviewing. A
+  targeted test alone is not a story-completion gate.
 - Review tests before production code: business-readable arrange/act/assert
   flow, observable outcomes, meaningful assertions, and duplication balanced
   against clarity; then simple design, names, cohesion, duplication, YAGNI,
   side-effect boundaries, and explanatory-comment replacement.
+- Treat comments as design failures by default. Require refactoring toward
+  expressive code and allow comments only for exceptional constraints that
+  cannot be encoded in structure or names, such as licensing, generated
+  interfaces, external protocols, or irreducible safety/business rationale.
 - Emit only evidence-backed findings with location, rationale, named mechanical
-  refactoring, and the tests that preserve behavior. State explicitly when no
-  worthwhile refactoring is found.
+  refactoring, preservation tests, stable IDs, priority semantics, status, and
+  disposition. `Must` findings block completion; `Should` findings require a
+  fix or written deferral; `Consider` findings are non-blocking. State
+  explicitly when no worthwhile refactoring is found.
 - Persist `refactoring.md` only when an active feature/story planning folder is
   identifiable; otherwise return the review without inventing a planning tree.
 
