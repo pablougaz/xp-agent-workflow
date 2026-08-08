@@ -159,11 +159,11 @@ output.
 
 ## Implementation todo
 
-- [ ] Add failing deterministic checks and evaluation fixtures.
-- [ ] Initialize and draft `xp-review-refactoring` with UI metadata.
-- [ ] Strengthen per-task cleanup and story-end review requirements.
-- [ ] Update documentation and bump `xp-agent-workflow` to 0.3.0.
-- [ ] Validate, pack, audit, install globally, and verify discovery.
+- [x] Add failing deterministic checks and evaluation fixtures.
+- [x] Initialize and draft `xp-review-refactoring` with UI metadata.
+- [x] Strengthen per-task cleanup and story-end review requirements.
+- [x] Update documentation and bump `xp-agent-workflow` to 0.3.0.
+- [x] Validate, pack, audit, install globally, and verify discovery.
 
 ## Spawn declarations
 
