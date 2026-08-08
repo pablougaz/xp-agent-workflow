@@ -25,6 +25,12 @@ description: Use when trying the packaged XP workflow to review an existing plan
 - REFACTOR tasks name the refactoring mechanic and why it makes a following behavior change easier.
 - The order makes the first useful behavior easy to test.
 - The plan uses existing code patterns where appropriate.
+- Every story ends with a final REFACTOR task that establishes green, invokes
+  `$xp-review-refactoring`, resolves worthwhile findings one mechanical step at
+  a time, and reruns the named preservation tests.
+- Every behavior-change task includes green-preserving cleanup of test code for
+  expressive business-readable Arrange-Act-Assert flow, followed by production
+  code for simple, self-documenting design.
 
 ## Outputs
 

@@ -23,9 +23,18 @@ For every behavior change:
 2. Run the targeted test and confirm RED.
 3. Write the minimum production code to pass.
 4. Run the targeted test and confirm GREEN.
-5. Refactor immediately while tests stay green.
+5. Refactor test code for expressive business behavior and a clear
+   Arrange-Act-Assert flow, then rerun the targeted tests and keep them green.
+6. Refactor production code into simple, clean, self-documenting units, then
+   rerun the targeted tests and keep them green.
 
 Never write production code for non-trivial behavior without a failing test driving it.
+
+Prefer whitespace and intention-revealing helpers over `Arrange`, `Act`, and
+`Assert` comments. Make assertions express meaningful observable outcomes.
+Replace explanatory production comments with clearer names and structure;
+retain comments only for non-obvious business rules, safety constraints,
+algorithms, licensing, or generated interfaces.
 
 When changing existing behavior, RED usually means changing an existing assertion or expectation to the new desired behavior, running the test, and seeing it fail for the expected reason.
 
@@ -49,6 +58,11 @@ When changing existing behavior, RED usually means changing an existing assertio
 5. Commit frequently after small, working progress.
 
 All tests must pass before final handoff or commit.
+
+After all story tasks are implemented and green, run
+`$xp-review-refactoring`. Resolve worthwhile findings one mechanical refactoring
+at a time with the relevant tests green before and after each change. Rerun the
+story test suite before completion.
 
 ## Status Discipline
 

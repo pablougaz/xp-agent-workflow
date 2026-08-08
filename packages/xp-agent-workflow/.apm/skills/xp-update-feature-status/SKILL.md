@@ -13,6 +13,9 @@ argument-hint: '<feature-name>'
 - Update the task status table in the story file.
 - Update the story status table in `plan.md` when a story is completed.
 - Before final handoff, verify the plan and story status match the work just completed.
+- A story cannot move to `Completed` until its final REFACTOR task has run
+  `$xp-review-refactoring`, resolved or explicitly dispositioned actionable
+  findings, and passed the relevant story test suite.
 
 Task and story statuses progress:
 

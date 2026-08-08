@@ -43,6 +43,11 @@ For an existing behavior change, the task names the existing assertion or expect
 
 Every REFACTOR task names the existing tests that prove behavior is preserved before and after the mechanical step.
 
+Every story ends with a final REFACTOR task that establishes green, runs
+`$xp-review-refactoring`, resolves worthwhile findings one mechanical step at a
+time, and reruns the relevant story test suite. A story is not `Completed`
+until this review-and-resolve task is complete.
+
 Use statuses consistently:
 
 - Not Started

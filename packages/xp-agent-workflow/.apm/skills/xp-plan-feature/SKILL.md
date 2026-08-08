@@ -46,6 +46,9 @@ Create `plan.md` with:
 - Use statuses: Not Started, Next, In Progress, Completed.
 - Start all stories as Not Started except the recommended first story, which is Next.
 - Name story files as `story-##-description.md`.
+- End every story with a final REFACTOR task that runs
+  `$xp-review-refactoring`, resolves each actionable finding through small
+  green-preserving steps, and reruns the relevant story test suite.
 
 ## TDD Task Rules
 
@@ -95,3 +98,8 @@ For REFACTOR:
 - Name the refactoring mechanic.
 - Explain why the refactor makes the next behavior change easier.
 - Name the existing test command or test case that proves behavior is preserved before and after the step.
+
+The final story task is a REFACTOR task: establish green, run
+`$xp-review-refactoring`, apply worthwhile findings one mechanical refactoring
+at a time, and run the named preservation tests after every change. If the
+review finds nothing worthwhile, record that result and leave the code alone.

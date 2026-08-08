@@ -11,6 +11,7 @@ Use these commands to try the packaged workflow:
 /xp-brainstorm-feature
 /xp-plan-feature
 /xp-review-feature-plan
+/xp-review-refactoring
 /xp-update-feature-status
 ```
 
@@ -47,11 +48,16 @@ flowchart TD
     TaskType --> Refactor["REFACTOR"]
     Behavior --> Red["RED: new test or changed existing assertion"]
     Red --> Green["GREEN: minimum code"]
-    Green --> Cleanup["Refactor while tests pass"]
+    Green --> TestCleanup["Refactor tests: expressive behavior and AAA"]
+    TestCleanup --> CodeCleanup["Refactor production: simple self-documenting code"]
     Refactor --> Preserve["Existing tests pass before and after"]
-    Cleanup --> Status["/xp-update-feature-status"]
+    CodeCleanup --> Status["/xp-update-feature-status"]
     Preserve --> Status
-    Status --> Next["Advance next task/story"]
+    Status --> More{"More implementation tasks?"}
+    More -->|Yes| Next["Advance next task"]
+    More -->|No| FinalReview["/xp-review-refactoring"]
+    FinalReview --> Resolve["Resolve worthwhile findings while green"]
+    Resolve --> Complete["Complete story"]
 ```
 
 ## Work Shape Vs Task Type
@@ -70,6 +76,14 @@ Task type answers "what kind of step is this?"
 - REFACTOR: preserve behavior; existing tests pass before and after each small mechanical step.
 
 Tasks live in the story markdown file, in the story's task table and task detail sections. The workflow does not create separate task files.
+
+After every behavior change reaches green, clean up test code first for
+business-readable Arrange-Act-Assert flow, then production code for simple,
+self-documenting design. Rerun targeted tests after each refactoring step.
+
+Every story ends with a REFACTOR task that runs
+`/xp-review-refactoring`, resolves worthwhile findings one mechanical change at
+a time, and reruns the relevant story suite before completion.
 
 ## Package Boundary
 
