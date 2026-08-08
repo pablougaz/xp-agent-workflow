@@ -1,5 +1,5 @@
 name: xp-agent-workflow
-version: 0.3.0
+version: 0.3.1
 description: Reusable XP and Pensieve planning workflow for coding agents.
 author: pabloper
 license: MIT

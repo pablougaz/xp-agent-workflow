@@ -56,6 +56,8 @@ done
 whole_file_matches 'test code.*production code\|tests.*production code' "$XP_INSTRUCTIONS" || fail "per-task cleanup is not ordered test-first"
 grep -qi 'arrange.*act.*assert\|AAA' "$XP_INSTRUCTIONS" || fail "per-task test cleanup omits expressive AAA"
 grep -qi 'self-documenting' "$XP_INSTRUCTIONS" || fail "per-task production cleanup omits self-documenting code"
+grep -qi 'comments.*design failure\|comments.*design defect' "$XP_INSTRUCTIONS" || fail "XP instructions do not treat comments as a design failure"
+grep -qi 'exceptional' "$XP_INSTRUCTIONS" || fail "XP instructions do not bound exceptional comments"
 grep -qi 'final.*REFACTOR task\|final story task.*REFACTOR' "$PLAN_SKILL" || fail "plans do not end stories with a review-and-resolve REFACTOR task"
 grep -qi 'cannot.*Completed\|do not.*Completed' "$STATUS_SKILL" || fail "status can complete before the final review"
 grep -q '^version: 0.3.1$' "$PACKAGE_MANIFEST" || fail "XP package version is not 0.3.1"

@@ -1,0 +1,21 @@
+pack:
+  format: plugin
+  target: minimal
+  packed_at: '2026-08-08T18:09:30.572866+00:00'
+  bundle_files:
+    instructions/pensieve-planning.instructions.md: 6ae268a2ede01402c4d0812eea572babf74b873f51814359accdf169a5d9422f
+    instructions/xp-development.instructions.md: eb30ea29dd7e403604d535cd46495bbc4e198b3cda97618e24bfdd6c016a5135
+    plugin.json: 49c8c81a37ee048cf076afad32add3a03ae176689215bb9ddee191e92858ede2
+    skills/xp-brainstorm-feature/SKILL.md: 64f5203c833f30c1c15d08e2ef03156b6826bc173e9daf21d10e7a50a010132b
+    skills/xp-plan-feature/SKILL.md: 66149e9ad2e36b75c80b302dd3c8d10c9a4013c72580ec6fcb00dcef33b996c4
+    skills/xp-plan-feature/references/design-for-change.md: ed48d6a1a0504a26ceb33d2806413bdc6417ce85dcbaf8f49a5fd5c0069fef68
+    skills/xp-plan-feature/references/refactoring-mechanics.md: 65e391a75c44329ccafeede96414f3331d16810a3fecf421717bab5e46eb3e5c
+    skills/xp-plan-feature/references/work-shapes.md: d8c9e430b0a1d6e2fe98b4fc94d47408875f6a9a26e2d92ad33d801c4d8f896b
+    skills/xp-review-feature-plan/SKILL.md: ffc102ca36fa40ae39076363c3cfa180432a5d2f492039ad31e26a0e1caadc4b
+    skills/xp-review-refactoring/SKILL.md: 12d841308ceeb37a6309cb84995537ff1a9bc704ff9c6ecd7d063f4b8504967a
+    skills/xp-review-refactoring/agents/openai.yaml: ca67b90b4d87fa4550279b393be77b7b26d730b84de12e62bc9e3456917c9d3d
+    skills/xp-update-feature-status/SKILL.md: 917beb6b2779c9737df5084db8341e79635c8e061dcabd0cab5848f1f0223634
+lockfile_version: '1'
+generated_at: '2026-07-23T00:00:00+00:00'
+apm_version: 0.23.1
+dependencies: []

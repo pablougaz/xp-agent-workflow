@@ -1,0 +1,4 @@
+interface:
+  display_name: "XP Review Refactoring"
+  short_description: "Review green story code for clean refactors"
+  default_prompt: "Use $xp-review-refactoring to review this completed story for worthwhile refactorings."
